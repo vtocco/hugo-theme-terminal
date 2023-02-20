@@ -1,4 +1,12 @@
-<!--
-To add an extended footer section, please create
-`layouts/partials/extended_footer.html` in your Hugo directory.
--->
+<script>
+    (function () {
+        if (!localStorage.getItem('cookieconsent')) {
+            document.body.innerHTML += '<div class="cookieconsent"> This site uses cookies. <a href="/privacy-policy" style = "color:#CCCCCC;" > (Privacy Policy)</a > By continuing to use this website, you agree to their use. < a href = "#" id="consent" style="color: #CCCCCC; "> I Understand </a></div>';
+            document.querySelector('.cookieconsent #consent').onclick = function (e) {
+                e.preventDefault();
+                document.querySelector('.cookieconsent').style.display = 'none';
+                localStorage.setItem('cookieconsent', true);
+            };
+        }
+    })();
+</script>
